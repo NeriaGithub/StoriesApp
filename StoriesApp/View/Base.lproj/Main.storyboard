@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RA6-jh-cLq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stories Table-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StoriesTableVC" customModule="StoriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eIV-Sd-aGN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Owu-ZJ-JIe"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4Dd-EZ-Q9W"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eIV-Sd-aGN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VlV-bb-LJL"/>
+                            <constraint firstItem="eIV-Sd-aGN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dPj-iF-a8i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eIV-Sd-aGN" secondAttribute="bottom" id="mZq-sg-t75"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eIV-Sd-aGN" secondAttribute="trailing" id="sv4-DN-KBF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Stories Table" id="BZq-dG-xES"/>
+                    <connections>
+                        <outlet property="table" destination="eIV-Sd-aGN" id="rwX-M3-eod"/>
+                        <segue destination="SDW-bC-fX4" kind="show" identifier="storiesSegue" id="saC-CB-qZj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="793"/>
+        </scene>
+        <!--Story Detail-->
+        <scene sceneID="Opx-CW-82s">
+            <objects>
+                <viewController title="Story Detail" id="SDW-bC-fX4" customClass="StoryVC" customModule="StoriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Mo-xc-Nur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g65-oH-4py">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="fyC-DW-M1n">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="rSD-3E-7lR">
+                                            <connections>
+                                                <action selector="backAction:" destination="SDW-bC-fX4" id="eXh-S6-Th2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="&gt;" id="Rv0-t0-TyV">
+                                            <connections>
+                                                <action selector="nextAction:" destination="SDW-bC-fX4" id="StL-m1-GeM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FfT-DE-81l">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FfT-DE-81l" firstAttribute="top" secondItem="9hd-CZ-yI6" secondAttribute="top" id="BCO-dT-Qe0"/>
+                            <constraint firstItem="g65-oH-4py" firstAttribute="leading" secondItem="9hd-CZ-yI6" secondAttribute="leading" id="JAo-9y-JOx"/>
+                            <constraint firstItem="FfT-DE-81l" firstAttribute="leading" secondItem="9hd-CZ-yI6" secondAttribute="leading" id="Ynr-q9-eum"/>
+                            <constraint firstItem="9hd-CZ-yI6" firstAttribute="bottom" secondItem="g65-oH-4py" secondAttribute="bottom" id="bcB-dt-Qex"/>
+                            <constraint firstItem="g65-oH-4py" firstAttribute="top" secondItem="FfT-DE-81l" secondAttribute="bottom" id="d2D-wm-6o2"/>
+                            <constraint firstItem="9hd-CZ-yI6" firstAttribute="trailing" secondItem="FfT-DE-81l" secondAttribute="trailing" id="dRK-t9-hM5"/>
+                            <constraint firstItem="9hd-CZ-yI6" firstAttribute="trailing" secondItem="g65-oH-4py" secondAttribute="trailing" id="eD0-Xt-uR7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9hd-CZ-yI6"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="rSD-3E-7lR" id="skU-Xq-qqx"/>
+                        <outlet property="nextButton" destination="Rv0-t0-TyV" id="9bh-AM-6tH"/>
+                        <outlet property="webView" destination="FfT-DE-81l" id="0kz-ea-goc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPR-jX-9tX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="785"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vkS-qo-fCR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RA6-jh-cLq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sK8-yF-MbX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FUr-JC-NmA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9r-Py-PV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="792.95352323838085"/>
+        </scene>
+    </scenes>
+</document>
